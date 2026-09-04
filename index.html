@@ -1,0 +1,1334 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>MK TRADING - منصة التداول والتحليل</title>
+
+    <meta name="robots" content="noarchive, noimageindex, nosnippet" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <link rel="stylesheet" crossorigin href="/index-C3D27GEN.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none; /* منع تحديد النص */
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #0a0a0a);
+        color: #ffffff;
+        min-height: 100vh;
+      }
+
+      /* منع سحب الصور والفيديو */
+      img,
+      video {
+        -webkit-user-drag: none;
+        user-drag: none;
+        pointer-events: auto;
+      }
+
+      /* Header */
+      .header {
+        background: rgba(0, 0, 0, 0.95);
+        padding: 15px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 2px solid #ffd700;
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-text {
+        font-size: 26px;
+        font-weight: bold;
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+
+      .nav-menu a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        transition: color 0.3s;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .nav-menu a:hover {
+        color: #ffd700;
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffd700;
+        transition: width 0.3s;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      /* Sections visibility */
+      .marketing-section {
+        display: block;
+      }
+
+      .app-section {
+        display: none;
+        min-height: 100vh;
+        padding-top: 80px;
+      }
+
+      .app-section.active {
+        display: block;
+      }
+
+      .marketing-section.hidden {
+        display: none;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 150px 20px 60px;
+        text-align: center !important; /* إجبار النص على التوسيط */
+        display: block !important;
+        width: 100%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(255, 215, 0, 0.1),
+          transparent 70%
+        );
+      }
+
+      .hero-logo {
+        width: 130px;
+        height: 130px;
+        border-radius: 25px;
+        object-fit: contain;
+        border: 3px solid #ffd700;
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+        margin: 0 auto 25px auto !important; /* إجبار اللوجو على البقاء في المنتصف */
+        display: block !important;
+        animation: float 3s ease-in-out infinite;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        text-align: center !important; /* إجبار العنوان على التوسيط */
+        background: linear-gradient(45deg, #ffd700, #ff8c00, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 18px;
+        color: #cccccc;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        line-height: 1.8;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .stat-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 15px;
+        padding: 20px 30px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-8px);
+        border-color: #ffd700;
+      }
+
+      .stat-number {
+        font-size: 32px;
+        font-weight: bold;
+        color: #ffd700;
+      }
+
+      .stat-label {
+        font-size: 13px;
+        color: #aaaaaa;
+        margin-top: 5px;
+      }
+
+      /* Section Title */
+      .section-title {
+        text-align: center;
+        font-size: 34px;
+        margin-bottom: 50px;
+        color: #ffd700;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        margin: 15px auto;
+        border-radius: 3px;
+      }
+
+      /* Platform Images */
+      .platform-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+        display: block;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 10px;
+      }
+
+      /* Registration Section */
+      .register-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .register-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+      }
+
+      .register-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 215, 0, 0.2);
+        border-radius: 20px;
+        padding: 35px 25px;
+        text-align: center;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .register-card.featured {
+        border-color: #ffd700;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+      }
+
+      .register-card.boct-card {
+        border-color: rgba(255, 215, 0, 0.5);
+      }
+
+      .register-card.qx-card {
+        border-color: rgba(0, 180, 216, 0.5);
+      }
+
+      .register-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+
+      .register-card.boct-card::before {
+        background: linear-gradient(90deg, #ffd700, #ff8c00);
+      }
+
+      .register-card.qx-card::before {
+        background: linear-gradient(90deg, #00b4d8, #0077b6);
+      }
+
+      .register-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+      }
+
+      .register-card.qx-card:hover {
+        box-shadow: 0 15px 40px rgba(0, 180, 216, 0.2);
+      }
+
+      .register-card h3 {
+        font-size: 22px;
+        margin-bottom: 8px;
+        color: #ffffff;
+      }
+
+      .register-card .subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .register-card.boct-card .subtitle {
+        color: #ffd700;
+      }
+
+      .register-card.qx-card .subtitle {
+        color: #00b4d8;
+      }
+
+      .register-card p {
+        color: #aaaaaa;
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-register {
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        color: #000;
+      }
+
+      .btn-register:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+      }
+
+      .btn-qx {
+        background: linear-gradient(45deg, #00b4d8, #0077b6);
+        color: #fff;
+      }
+
+      .btn-qx:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+      }
+
+      .btn-youtube {
+        background: linear-gradient(45deg, #ff0000, #cc0000);
+        color: #fff;
+      }
+
+      .btn-youtube:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+      }
+
+      .btn-telegram {
+        background: linear-gradient(45deg, #0088cc, #006699);
+        color: #fff;
+      }
+
+      .btn-telegram:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+      }
+
+      .btn-tiktok {
+        background: linear-gradient(135deg, #000000, #25f4ee, #fe2c55);
+        background-size: 200% 200%;
+        color: #fff;
+        font-weight: bold;
+        animation: tiktokGradient 3s ease infinite;
+      }
+
+      @keyframes tiktokGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .btn-tiktok:hover {
+        transform: scale(1.05);
+        box-shadow:
+          0 8px 25px rgba(0, 0, 0, 0.5),
+          0 0 15px rgba(37, 244, 238, 0.5);
+      }
+
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .svg-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Support Section */
+      .support-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .support-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 20px;
+      }
+
+      .support-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .support-card.kiotex-support {
+        border-color: rgba(0, 180, 216, 0.4);
+      }
+
+      .support-card.boct-support {
+        border-color: rgba(255, 215, 0, 0.4);
+      }
+
+      .support-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+
+      .support-card.kiotex-support::before {
+        background: linear-gradient(90deg, #00b4d8, #0077b6);
+      }
+
+      .support-card.boct-support::before {
+        background: linear-gradient(90deg, #ffd700, #ff8c00);
+      }
+
+      .support-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .support-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+      }
+
+      .support-card.kiotex-support:hover {
+        box-shadow: 0 10px 30px rgba(0, 180, 216, 0.15);
+      }
+
+      .card-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+
+      .support-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #ffffff;
+      }
+
+      .support-card .support-tag {
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 12px;
+      }
+
+      .support-tag.kiotex-tag {
+        background: rgba(0, 180, 216, 0.2);
+        color: #00b4d8;
+      }
+
+      .support-tag.boct-tag {
+        background: rgba(255, 215, 0, 0.2);
+        color: #ffd700;
+      }
+
+      .support-card p {
+        color: #aaaaaa;
+        margin-bottom: 18px;
+        font-size: 13px;
+      }
+
+      .btn-support {
+        padding: 10px 22px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s;
+      }
+
+      .btn-support.kiotex-btn {
+        background: linear-gradient(45deg, #00b4d8, #0077b6);
+        color: #fff;
+      }
+
+      .btn-support.kiotex-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(0, 180, 216, 0.5);
+      }
+
+      .btn-support.boct-btn {
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        color: #000;
+      }
+
+      .btn-support.boct-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+      }
+
+      .btn-support.owner-btn {
+        background: linear-gradient(45deg, #4a00e0, #8e2de2);
+        color: #fff;
+      }
+
+      .btn-support.owner-btn:hover {
+        box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
+      }
+
+      .btn-support.dev-btn {
+        background: linear-gradient(45deg, #11998e, #38ef7d);
+        color: #000;
+      }
+
+      .btn-support.dev-btn:hover {
+        box-shadow: 0 5px 20px rgba(56, 239, 125, 0.5);
+      }
+
+      /* TikTok Section */
+      .tiktok-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .tiktok-grid {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .tiktok-card {
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(37, 244, 238, 0.5);
+        border-radius: 28px;
+        padding: 35px;
+        text-align: center;
+        transition: all 0.3s;
+        max-width: 500px;
+        width: 100%;
+        backdrop-filter: blur(12px);
+      }
+
+      .tiktok-card:hover {
+        transform: translateY(-8px);
+        border-color: #25f4ee;
+        box-shadow: 0 15px 35px rgba(37, 244, 238, 0.2);
+      }
+
+      .tiktok-icon {
+        font-size: 70px;
+        margin-bottom: 15px;
+      }
+
+      .tiktok-card h3 {
+        font-size: 26px;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #25f4ee, #fe2c55);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .tiktok-card p {
+        color: #cccccc;
+        margin-bottom: 25px;
+        font-size: 15px;
+      }
+
+      /* Channel Section */
+      .channel-section {
+        padding: 60px 20px;
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .channel-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid #0088cc;
+        border-radius: 20px;
+        padding: 35px;
+        transition: all 0.3s;
+      }
+
+      .channel-card:hover {
+        border-color: #00a8ff;
+        box-shadow: 0 10px 30px rgba(0, 136, 204, 0.3);
+        transform: translateY(-5px);
+      }
+
+      .channel-icon {
+        font-size: 60px;
+        margin-bottom: 15px;
+      }
+
+      .channel-card h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .channel-card p {
+        color: #aaaaaa;
+        margin-bottom: 20px;
+      }
+
+      /* Team Section */
+      .team-section {
+        padding: 60px 20px;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .team-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .team-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .team-card:hover {
+        border-color: #ffd700;
+        transform: translateY(-5px);
+      }
+
+      .team-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        font-weight: bold;
+      }
+
+      .team-avatar.owner-avatar {
+        background: linear-gradient(45deg, #4a00e0, #8e2de2);
+      }
+
+      .team-avatar.dev-avatar {
+        background: linear-gradient(45deg, #11998e, #38ef7d);
+      }
+
+      .team-card h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .team-card .role {
+        color: #ffd700;
+        font-size: 13px;
+        margin-bottom: 15px;
+      }
+
+      /* Footer */
+      .footer {
+        background: rgba(0, 0, 0, 0.95);
+        text-align: center;
+        padding: 30px 20px;
+        border-top: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .footer p {
+        color: #aaaaaa;
+        font-size: 14px;
+      }
+
+      .footer .brand {
+        color: #ffd700;
+        font-weight: bold;
+      }
+
+      .footer-links {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: #ffd700;
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #ff8c00;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .nav-menu {
+          justify-content: center;
+          gap: 15px;
+        }
+        .hero h1 {
+          font-size: 30px;
+        }
+        .hero-logo {
+          width: 100px;
+          height: 100px;
+        }
+        .register-grid,
+        .youtube-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          gap: 15px;
+        }
+        .stat-box {
+          padding: 15px 20px;
+        }
+        .stat-number {
+          font-size: 26px;
+        }
+        .platform-img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+      /* React App Styles */
+      #root {
+        min-height: 100vh;
+        padding-top: 80px; /* المسافة المضافة لمنع اختفاء المحتوى خلف الهيدر */
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-text">MK TRADING</span>
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li><a id="home-link">الرئيسية</a></li>
+            <li><a id="register-link">تسجيل</a></li>
+            <li>
+              <a id="analyze-link" style="color: #ffd700; font-weight: bold"
+                >📊 تحليل</a
+              >
+            </li>
+            <li><a id="tiktok-link">تيك توك</a></li>
+            <li><a id="support-link">الدعم</a></li>
+            <li><a id="team-link">الفريق</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="marketing-content" class="marketing-section">
+      <section class="hero" id="home">
+        <video autoplay loop muted playsinline class="hero-logo">
+          <source src="MK.mp4" type="video/mp4" />
+          متصفحك لا يدعم تشغيل الفيديو
+        </video>
+        <h1>مرحباً بك في MK TRADING</h1>
+        <p>
+          منصتك الموثوقة للتداول مع أفضل شركات الوساطة. نساعدك على تحقيق أهدافك
+          المالية مع دعم فني متكامل على مدار الساعة.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-box">
+            <div class="stat-number">+1000</div>
+            <div class="stat-label">متداول نشط</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">دعم فني</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">⚡</div>
+            <div class="stat-label">تنفيذ سريع</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="register-section" id="register">
+        <h2 class="section-title">📝 سجل الآن مع MK TRADING</h2>
+        <div class="register-grid">
+          <div class="register-card boct-card featured">
+            <img
+              src="PO.jpg"
+              alt="بوكت"
+              class="platform-img"
+              onerror="this.style.display = 'none'"
+            />
+            <h3>🏆 بوكت - Pocket</h3>
+            <p class="subtitle">منصة تداول احترافية</p>
+            <p>
+              سجل في منصة بوكت للاستمتاع بتجربة تداول سلسة وآمنة مع أفضل الأدوات
+              التحليلية.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://po8.cash/smart/gSpMGum7xO8Rsv"
+                target="_blank"
+                class="btn btn-register"
+                >🔗 سجل في بوكت</a
+              >
+              <a
+                href="https://www.youtube.com/@MK_Trad"
+                target="_blank"
+                class="btn btn-youtube"
+              >
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+                يوتيوب بوكت
+              </a>
+            </div>
+          </div>
+
+          <div class="register-card qx-card">
+            <img
+              src="QX.jpg"
+              alt="كيوتكس"
+              class="platform-img"
+              onerror="this.style.display = 'none'"
+            />
+            <h3>💠 كيوتكس - Broker QX</h3>
+            <p class="subtitle">وسيط موثوق ومرخص</p>
+            <p>
+              سجل في كيوتكس واحصل على أفضل الخدمات الاستشارية والتحليلية لتحقيق
+              أقصى استفادة من استثماراتك.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://broker-qx.pro/sign-up/?lid=324364"
+                target="_blank"
+                class="btn btn-qx"
+                >🔗 سجل في كيوتكس</a
+              >
+              <a
+                href="https://www.youtube.com/@MKTRADING1"
+                target="_blank"
+                class="btn btn-youtube"
+              >
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+                يوتيوب كيوتكس
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-section" id="support">
+        <h2 class="section-title">📞 الدعم الفني حسب المنصة</h2>
+        <div class="support-grid">
+          <div class="support-card kiotex-support">
+            <div class="card-icon">💠</div>
+            <span class="support-tag kiotex-tag">خاص بمنصة كيوتكس</span>
+            <h3>دعم كيوتكس</h3>
+            <p>للاستفسارات والدعم الفني الخاص بمنصة كيوتكس - Broker QX</p>
+            <a
+              href="https://t.me/MKSUP1"
+              target="_blank"
+              class="btn-support kiotex-btn"
+              >@MKSUP1</a
+            >
+          </div>
+
+          <div class="support-card boct-support">
+            <div class="card-icon">🏆</div>
+            <span class="support-tag boct-tag">خاص بمنصة بوكت</span>
+            <h3>دعم بوكت</h3>
+            <p>للاستفسارات والدعم الفني الخاص بمنصة بوكت - Pocket</p>
+            <a
+              href="https://t.me/ASuppor_Mk2"
+              target="_blank"
+              class="btn-support boct-btn"
+              >@ASuppor_Mk2</a
+            >
+          </div>
+
+          <div class="support-card">
+            <div class="card-icon">👥</div>
+            <span
+              class="support-tag"
+              style="background: rgba(255, 255, 255, 0.1); color: #fff"
+              >مجتمع عام</span
+            >
+            <h3>مجموعة MK TEAM</h3>
+            <p>الاستفسارات العامة ومجتمع MK TRADING لجميع المنصات</p>
+            <a
+              href="https://t.me/MK_TEAM_MK"
+              target="_blank"
+              class="btn-support"
+              style="
+                background: linear-gradient(45deg, #555, #888);
+                color: #fff;
+              "
+              >@MK_TEAM_MK</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="tiktok-section" id="tiktok">
+        <h2 class="section-title">🎵 تابعنا على تيك توك</h2>
+        <div class="tiktok-grid">
+          <div class="tiktok-card">
+            <div class="tiktok-icon">🎵</div>
+            <h3>MK TRADING - TikTok</h3>
+            <p>
+              محتوى حصري، فيديوهات تداول سريعة، تحليلات السوق، ونصائح ذهبية
+              لتجارة رقمية ناجحة.
+            </p>
+            <a
+              href="https://www.tiktok.com/@mk_trading_1"
+              target="_blank"
+              class="btn btn-tiktok"
+            >
+              <svg
+                class="svg-icon"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                style="width: 18px; height: 18px"
+              >
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.87-4.09 2.9 2.9 0 0 1 .87.13V9.41a6.3 6.3 0 0 0-1-.08A6.31 6.31 0 0 0 5 15.64 6.31 6.31 0 0 0 11.34 22 6.31 6.31 0 0 0 17.62 15.4V9.61a7.88 7.88 0 0 0 4.6 1.48V7.79a4.77 4.77 0 0 1-2.63-1.1z"
+                />
+              </svg>
+              @mk_trading_1
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="channel-section" id="channel">
+        <h2 class="section-title">📢 القناة الرسمية</h2>
+        <div class="channel-card">
+          <div class="channel-icon">📣</div>
+          <h3>قناة MK TRADING الرسمية</h3>
+          <p>
+            انضم لقناتنا على تيليجرام للحصول على آخر التحديثات والعروض
+            والتحليلات أولاً بأول
+          </p>
+          <a
+            href="https://t.me/MK00MKTRAD0"
+            target="_blank"
+            class="btn btn-telegram"
+            >@MK00MKTRAD0</a
+          >
+        </div>
+      </section>
+
+      <section class="team-section" id="team">
+        <h2 class="section-title">👨‍💼 فريق MK TRADING</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar owner-avatar">M</div>
+            <h3>Mk07mm1</h3>
+            <p class="role">👑 مالك المنصة</p>
+            <a
+              href="https://t.me/Mk07mm1"
+              target="_blank"
+              class="btn-support owner-btn"
+              >تواصل مع المالك</a
+            >
+          </div>
+          <div class="team-card">
+            <div class="team-avatar dev-avatar">S</div>
+            <h3>Suppor_Mk</h3>
+            <p class="role">💻 المبرمج الرسمي</p>
+            <a
+              href="https://t.me/Suppor_Mk"
+              target="_blank"
+              class="btn-support dev-btn"
+              >تواصل مع المبرمج</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" id="contact">
+        <p>© 2026 جميع الحقوق محفوظة - <span class="brand">MK TRADING</span></p>
+        <p style="margin-top: 8px">منصة التداول الموثوقة - دعم فني 24/7</p>
+        <div class="footer-links">
+          <a href="https://t.me/MK00MKTRAD0" target="_blank"
+            >📢 القناة الرسمية</a
+          >
+          <span style="color: #555">|</span>
+          <a href="https://www.tiktok.com/@mk_trading_1" target="_blank"
+            >🎵 تيك توك</a
+          >
+          <span style="color: #555">|</span>
+          <a href="https://t.me/MKSUP1" target="_blank">💠 دعم كيوتكس</a>
+          <span style="color: #555">|</span>
+          <a href="https://t.me/ASuppor_Mk2" target="_blank">🏆 دعم بوكت</a>
+          <span style="color: #555">|</span>
+          <a href="https://www.youtube.com/@MKTRADING1" target="_blank"
+            >▶️ يوتيوب كيوتكس</a
+          >
+          <span style="color: #555">|</span>
+          <a href="https://www.youtube.com/@MK_Trad" target="_blank"
+            >▶️ يوتيوب بوكت</a
+          >
+        </div>
+      </footer>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module" crossorigin src="/index-BmYXB-wq.js"></script>
+    <link rel="modulepreload" crossorigin href="/Index-C7ucD_wO.js" />
+
+    <script>
+      (function () {
+        var userAgent = navigator.userAgent.toLowerCase();
+        var isMobile =
+          /android|webos|iphone|ipad|ipod|blackberry|windows phone/i.test(
+            userAgent,
+          );
+        var isTablet = /ipad|android(?!.*mobile)/i.test(userAgent);
+
+        var botsList = [
+          "wget",
+          "curl",
+          "httrack",
+          "python-requests",
+          "java",
+          "perl",
+          "php",
+          "spider",
+          "bot",
+          "scrapy",
+          "webcopy",
+          "webzip",
+          "selenium",
+          "playwright",
+          "puppeteer",
+          "headless",
+        ];
+        var isBotDetected = false;
+
+        for (var i = 0; i < botsList.length; i++) {
+          if (userAgent.indexOf(botsList[i]) !== -1) {
+            isBotDetected = true;
+            break;
+          }
+        }
+
+        if (!isMobile && !isTablet) {
+          if (window.navigator && window.navigator.webdriver === true)
+            isBotDetected = true;
+          if (window.screen.width === 800 && window.screen.height === 600)
+            isBotDetected = true;
+          if (navigator.plugins.length === 0) isBotDetected = true;
+        }
+
+        if (isBotDetected) {
+          document.body.innerHTML =
+            '<div style="text-align:center;margin-top:20%;padding:50px;background:black;color:red;direction:rtl"><h1>⛔ تم حظر الوصول</h1><p>هذا الموقع محمي ضد أدوات النسخ الآلية.</p><p>MK TRADING</p></div>';
+          throw new Error("Access denied - Bot detected");
+        }
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "F12") {
+            e.preventDefault();
+            return false;
+          }
+          if (
+            (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+            (e.ctrlKey && e.key === "u")
+          ) {
+            e.preventDefault();
+            return false;
+          }
+          if (e.ctrlKey && e.key === "s") {
+            e.preventDefault();
+            alert("❌ حفظ الصفحة غير مسموح به");
+            return false;
+          }
+        });
+
+        document.addEventListener("contextmenu", function (e) {
+          e.preventDefault();
+          return false;
+        });
+        document.addEventListener("selectstart", function (e) {
+          e.preventDefault();
+          return false;
+        });
+
+        var allMedia = document.querySelectorAll("img, video");
+        for (var i = 0; i < allMedia.length; i++) {
+          allMedia[i].addEventListener("dragstart", function (e) {
+            e.preventDefault();
+            return false;
+          });
+        }
+
+        var allowedDomains = ["mk-trading.netlify.app"];
+        var currentHost = window.location.hostname;
+        var isDomainAllowed = currentHost === "mk-trading.netlify.app";
+
+        for (var d = 0; d < allowedDomains.length; d++) {
+          if (currentHost === allowedDomains[d]) {
+            isDomainAllowed = true;
+            break;
+          }
+        }
+
+        if (!isDomainAllowed) {
+          document.body.innerHTML =
+            '<div style="text-align:center;margin-top:20%;padding:50px;background:black;color:orange;direction:rtl"><h1>⚠️ موقع غير مرخص</h1><p>هذا المحتوى محمي.</p></div>';
+          throw new Error("Domain not authorized");
+        }
+
+        setInterval(function () {
+          var before = new Date().getTime();
+          debugger;
+          var after = new Date().getTime();
+          if (after - before > 100) {
+            document.body.style.opacity = "0.5";
+            setTimeout(function () {
+              document.body.style.opacity = "1";
+            }, 500);
+          }
+        }, 2000);
+
+        if (window.self !== window.top) {
+          window.top.location = window.self.location;
+        }
+
+        var images = document.querySelectorAll("img");
+        for (var i = 0; i < images.length; i++) {
+          var img = images[i];
+          var originalSrc = img.src;
+          if (
+            originalSrc &&
+            originalSrc.indexOf("data:") === -1 &&
+            originalSrc.indexOf("placehold") === -1 &&
+            originalSrc.indexOf("?mk=") === -1
+          ) {
+            var randomParam = "?mk=" + Math.random().toString(36).substr(2, 8);
+            img.src =
+              originalSrc +
+              (originalSrc.indexOf("?") !== -1
+                ? "&mk=" + randomParam
+                : randomParam);
+          }
+        }
+
+        var watermarkDiv = document.createElement("div");
+        watermarkDiv.style.position = "fixed";
+        watermarkDiv.style.bottom = "5px";
+        watermarkDiv.style.left = "5px";
+        watermarkDiv.style.fontSize = "10px";
+        watermarkDiv.style.color = "rgba(255,215,0,0.2)";
+        watermarkDiv.style.pointerEvents = "none";
+        watermarkDiv.style.zIndex = "9999";
+        watermarkDiv.style.fontFamily = "monospace";
+        watermarkDiv.innerHTML = "MK TRADING © " + new Date().getFullYear();
+        document.body.appendChild(watermarkDiv);
+
+        // Navigation between marketing and app
+        var marketingContent = document.getElementById("marketing-content");
+        var rootElement = document.getElementById("root");
+        var appLoaded = false;
+
+        function showMarketing() {
+          marketingContent.style.display = "block";
+          rootElement.style.display = "none";
+          window.scrollTo(0, 0);
+        }
+
+        function showApp() {
+          marketingContent.style.display = "none";
+          rootElement.style.display = "block";
+          window.scrollTo(0, 0);
+
+          // Initialize React app if not already loaded
+          if (!appLoaded) {
+            appLoaded = true;
+            // The React app will auto-mount to #root via the bundled scripts
+          }
+        }
+
+        // Navigation click handlers
+        document
+          .getElementById("home-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showMarketing();
+            document
+              .getElementById("home")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+
+        document
+          .getElementById("register-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showMarketing();
+            document
+              .getElementById("register")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+
+        document
+          .getElementById("analyze-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showApp();
+          });
+
+        document
+          .getElementById("tiktok-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showMarketing();
+            document
+              .getElementById("tiktok")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+
+        document
+          .getElementById("support-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showMarketing();
+            document
+              .getElementById("support")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+
+        document
+          .getElementById("team-link")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            showMarketing();
+            document
+              .getElementById("team")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+
+        // Hide root initially
+        rootElement.style.display = "none";
+      })();
+    </script>
+  </body>
+</html>
